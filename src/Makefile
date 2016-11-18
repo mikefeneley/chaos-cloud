@@ -1,13 +1,20 @@
 CC=g++
+CFLAGS= -c
+LDFLAGS=
 I = -I /usr/local/boost_1_60_0
 
-all: chaos_monitor
+SOURCES = main.cpp daemon_manager.cpp 
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECUTABLE = chaos_monitor
 
-chaos_monitor: main.o
-	$(CC) main.o
+all:$(SOURCES) $(EXECUTABLE) 
 
-main.o: main.cpp
-	$(CC) $(I) -c main.cpp
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cpp.o:
+	$(CC) $(I) $(CFLAGS) $< -o $@
+
 clean:
 	-rm *.txt
 	-rm *.o
