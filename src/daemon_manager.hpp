@@ -1,10 +1,10 @@
 #ifndef DAEMON_MANAGER_H
-#define DAEMON_MANGER_H
+#define DAEMON_MANAGER_H
 
-enum cmd {start, stop, kill, restart, change_int, change_pol};
+
+enum cmd {start, stop, kill_p, restart, change_int, change_pol};
 enum policy {};
 
-#include <iostream>
 
 
 class DaemonManager 

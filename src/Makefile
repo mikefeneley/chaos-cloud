@@ -1,11 +1,11 @@
 CC=g++
 CFLAGS= -c
 LDFLAGS=
-I = -I /usr/local/boost_1_60_0
+I = -I /usr/local/boost_1_60_0 
 
-SOURCES = main.cpp daemon_manager.cpp 
+SOURCES = main.cpp daemon_manager.cpp chaos_daemon.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = chaos_monitor
+EXECUTABLE = run 
 
 all:$(SOURCES) $(EXECUTABLE) 
 

@@ -27,7 +27,7 @@ int DaemonManager::manage()
     		std::cout << "Stop\n";
     		this->stop_daemon();
     		break;
-    	} case kill: {
+    	} case kill_p: {
     		std::cout << "Kill\n";
     		this->kill_daemon();
     		break;
@@ -50,6 +50,7 @@ int DaemonManager::manage()
 
 int DaemonManager::start_daemon()
 {
+	ChaosDaemon *daemon = new ChaosDaemon();
 	return -1;
 }
 
@@ -65,6 +66,8 @@ int DaemonManager::kill_daemon()
 
 int DaemonManager::restart_daemon()
 {
+	this->kill_daemon();
+	this->stop_daemon();
 	return -1;
 }
 
