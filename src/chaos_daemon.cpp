@@ -44,15 +44,14 @@ int ChaosDaemon::setup()
         exit(EXIT_FAILURE);
     }
 
-	this->save_pid();
-
 
     /* Change the current working directory */
     if ((chdir("/")) < 0) {
         /* Log any failure here */
         exit(EXIT_FAILURE);
     }
-
+	this->save_pid();
+	this->connect_local_db();
     /*
     signal(SIGUSR1, chaos_sighandler);
     signal(SIGUSR2, chaos_sighandler);  
@@ -82,9 +81,24 @@ int ChaosDaemon::save_pid()
 	return 0;
 }
 
+/*
+ * Connect to the local database of 
+ */
 int ChaosDaemon::connect_local_db()
 {
-	
+	sqlite3 *db;
+	int rc;
+
+	rc = sqlite3_open("This", &db);
+	if(rc) {
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      sqlite3_close(db);
+      return 0;
+    }
+
+    std::cout << "After\n";
+
+    return 1;
 }
 
 

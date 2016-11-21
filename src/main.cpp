@@ -5,13 +5,14 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-using namespace boost::program_options;
+#include <sqlite3.h>
+//using namespace boost::program_options;
 
 int main(int argc, char *argv[])
 {
 
-    options_description desc{"Options"};
-	
+//    options_description desc{"Options"};
+
     int flags, opt;
     int nsecs, tfnd;
 

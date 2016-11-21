@@ -10,6 +10,7 @@
 #include <csignal>
 #include <fstream>
 #include <cstdlib>
+#include <sqlite3.h>
 
 class ChaosDaemon
 {
