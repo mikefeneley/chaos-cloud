@@ -1,6 +1,6 @@
 CC=g++
-CFLAGS= -c
-LDFLAGS=
+CFLAGS= -c -std=c++11
+LDFLAGS= -lboost_system
 I = -I /usr/local/boost_1_60_0 
 
 SOURCES = main.cpp daemon_manager.cpp chaos_daemon.cpp
@@ -10,7 +10,7 @@ EXECUTABLE = run
 all:$(SOURCES) $(EXECUTABLE) 
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(I) $(LDFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 .cpp.o:
 	$(CC) $(I) $(CFLAGS) $< -o $@

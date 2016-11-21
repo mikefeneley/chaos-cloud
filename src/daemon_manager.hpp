@@ -1,9 +1,13 @@
 #ifndef DAEMON_MANAGER_H
 #define DAEMON_MANAGER_H
 
+#include <string>
+
 
 enum cmd {start, stop, kill_p, restart, change_int, change_pol};
 enum policy {};
+
+
 
 
 

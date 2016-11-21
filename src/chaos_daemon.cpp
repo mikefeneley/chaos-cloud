@@ -80,7 +80,13 @@ int ChaosDaemon::save_pid()
 	pid_file << fflush;
 	pid_file.close();
 	return 0;
-}	
+}
+
+int ChaosDaemon::connect_local_db()
+{
+	
+}
+
 
 /*
  * Perform chaosdaemon functionality: Setup database to track items,

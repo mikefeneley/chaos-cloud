@@ -21,7 +21,10 @@ class ChaosDaemon
 		int execute();
 		int setup();
 		int save_pid();
-
+		int connect_local_db();
+		int create_local_db();
+		int connect_remote_db();
+		int create_remote_db();
 };
 
 

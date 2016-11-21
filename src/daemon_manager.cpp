@@ -56,7 +56,22 @@ int DaemonManager::start_daemon()
 
 int DaemonManager::stop_daemon()
 {
-	return -1;
+	std::fstream pid_file;
+	pid_file.open("/var/run/chaosdaemon.pid", std::fstream::in);
+	if(!pid_file.is_open()) {
+		return 0;
+	}
+	pid_t pid = 0;
+	pid_file >> pid;
+
+	pid = pid / 10;
+
+	std::cout << pid;
+
+	 if(pid > 0) {
+    	kill(pid, SIGTERM);
+ 	}
+ 	return 1;
 }
 
 int DaemonManager::kill_daemon()
@@ -66,9 +81,9 @@ int DaemonManager::kill_daemon()
 
 int DaemonManager::restart_daemon()
 {
-	this->kill_daemon();
 	this->stop_daemon();
-	return -1;
+	this->start_daemon();
+	return 1;
 }
 
 int DaemonManager::change_interval()
